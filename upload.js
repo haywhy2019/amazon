@@ -1,15 +1,15 @@
+require('dotenv').config()
+
 const fs = require('fs');
 const AWS = require('aws-sdk')
 
-const ID = 'AKIA23WCJMLEU5VQQRGX';
-const SECRET = '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';
 
 // The name of the bucket that you have created
 const BUCKET_NAME = 'sga6-test';
 
 const s3 = new AWS.S3({
-    accessKeyId: ID,
-    secretAccessKey: SECRET
+    accessKeyId: process.env.ID,
+    secretAccessKey: process.env.SECRET
 });
 
 const uploadFile = (fileName) => {
